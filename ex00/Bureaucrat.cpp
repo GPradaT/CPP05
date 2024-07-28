@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/27 12:07:17 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/28 08:37:30 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat DESTRUCTOR" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
-{
-	_grade = grade;
-}
+
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
 {
@@ -52,4 +49,37 @@ std::ostream	&operator<<(std::ostream &out, const Bureaucrat &src)
 {
 	out << src.getName() + ", bureaucrat grade " << src.getGrade() << std::endl;
 	return out;
+}
+
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Is not possible to get higher grade than 1.";
+}
+
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Is not possible to get lower grade than 150.";
+}
+
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+{
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	_grade = grade;
+}
+
+void	Bureaucrat::incrementGrade()
+{
+	if (_grade <= 1)
+		throw GradeTooHighException();
+	_grade--;
+}
+
+void	Bureaucrat::decrementGrade()
+{
+	if (_grade >= 150)
+		throw GradeTooLowException();
+	_grade++;
 }

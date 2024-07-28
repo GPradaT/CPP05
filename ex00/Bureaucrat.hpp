@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/27 12:07:11 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/28 08:31:36 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ class	Bureaucrat
 
 		std::string	getName() const;
 		int		getGrade() const;
-
+		void		incrementGrade();
+		void		decrementGrade();
 		class	GradeTooHighException : public std::exception
 		{
 			public:
