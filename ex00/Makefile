@@ -6,7 +6,7 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 10:46:50 by gprada-t          #+#    #+#              #
-#    Updated: 2024/07/27 11:55:48 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/07/28 11:39:55 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(OBJS:.o=.d)
 
-CPPNDFLAGS = c++ -std=c++98 -Wall -Wextra -Werror -fsanitize=address
+CPPNDFLAGS = c++ -std=c++98 -Wall -Wextra -Werror -MMD -MP -fsanitize=address
 
 all: $(NAME)
 

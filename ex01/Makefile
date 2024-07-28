@@ -6,11 +6,11 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 10:46:50 by gprada-t          #+#    #+#              #
-#    Updated: 2024/07/28 10:37:45 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/07/28 11:39:34 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = FormUpMaggots
 
 SRCS = Bureaucrat.cpp Form.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)

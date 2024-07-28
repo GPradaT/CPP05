@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/28 08:37:30 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:10:52 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,19 @@ void	Bureaucrat::decrementGrade()
 	if (_grade >= 150)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(Form &toSign)
+{
+	if (toSign.getIsSigned())
+		return ;
+	try
+	{
+		toSign.beSigned(*this);
+		std::cout << this->getName() << " signed " << toSign.getName();
+	} catch (std::exception &e) {
+		std::cout << this->getName() << " couldn't sign "
+			<< toSign.getName() << " because " 
+			<< e.what() << std::endl;
+	}
 }
