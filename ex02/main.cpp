@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 10:22:40 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/29 12:44:24 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,13 @@ int	main()
 {
 	std::string name = "Constitution";
 	Bureaucrat	GrandMaster("Grand Master", 4);
-	ShrubberyCreationForm		Constitution(name);
+	ShrubberyCreationForm		Constitution;
 /*
 	try
 	{
-		ShrubberyCreationForm		test1(Constitution);
-		ShrubberyCreationForm		test3 = test1;
-		std::cout << test1;
-		std::cout << test3;
 		GrandMaster.signForm(Constitution);
-		Constitution.beSigned(GrandMaster);
+		test3.beSigned(GrandMaster);
+		std::cout << test3;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}*/

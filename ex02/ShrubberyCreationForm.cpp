@@ -6,54 +6,50 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 10:27:08 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/29 12:38:06 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : _name("Default"), _isSigned(false), _gradeToSign(150),
-	_gradeToExecute(150)
+ShrubberyCreationForm::ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm constructor" << std::endl;
+	_gradeToSign = 145;
+	_gradeToExecute = 137;
+	std::cout << "ShrubberyCreationForm CONSTRUCTOR" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : _name(src._name), _isSigned(src._isSigned),
-	_gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
 {
-    std::cout << "Copy ShrubberyCreationForm constructor called" << std::endl;
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name)
-	: _name(name)
-{
-	std::cout << name << "New Form Testing" << std::endl;
+	
+	std::cout << "Copy ShrubberyCreationForm CONSTRUCTOR" << std::endl;
+	*this = src;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm destructor" << std::endl;
+	std::cout << "ShrubberyCreationForm DESTRUCTOR" << std::endl;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-    if (this != &src)
-    {
-        _isSigned = src._isSigned;
-        _gradeToSign = src._gradeToSign;
-        _gradeToExecute = src._gradeToExecute;
-    }
-    return *this;
+	if (this != &src)
+	{
+		_isSigned = src._isSigned;
+		_gradeToSign = src._gradeToSign;
+		_gradeToExecute = src._gradeToExecute;
+	}
+	return *this;
 }
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
 {
-    out << "ShrubberyCreationForm: " << src.getName() << ", Sign status: "
-	    << (src.getIsSigned() ? "signed" : "not signed")
-	    << ", Grade to sign: " << src.getGradeToSign()
-	    << ", Grade to execute: " << src.getGradeToExecute()
-	    << std::endl;
-    return out;
+	out << "ShrubberyCreationForm: " << src.getName() << ", Sign status: "
+		<< (src.getIsSigned() ? "signed" : "not signed")
+		<< ", Grade to sign: " << src.getGradeToSign()
+		<< ", Grade to execute: " << src.getGradeToExecute()
+		<< std::endl;
+	return out;
 }
 /*
 const char	*ShrubberyCreationForm::GradeTooHighException::what() const throw()
@@ -85,10 +81,10 @@ int		ShrubberyCreationForm::getGradeToExecute() const
 {
 	return this->_gradeToExecute;
 }
-*/
+
 void		ShrubberyCreationForm::beSigned(const Bureaucrat &autor)
 {
 	if (autor.getGrade() > getGradeToSign())
 		throw GradeTooLowException();
 	_isSigned = true;
-}
+}*/
