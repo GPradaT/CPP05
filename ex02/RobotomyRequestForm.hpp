@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/30 15:16:59 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:58:08 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 
 class	Bureaucrat;
 
-class	ShrubberyCreationForm : public AForm
+class	RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	_target;
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &src);
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm		&operator=(const ShrubberyCreationForm &src);
+		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm &src);
+		~RobotomyRequestForm();
+		RobotomyRequestForm		&operator=(const RobotomyRequestForm &src);
 
 		void	execute(Bureaucrat const & executor) const;
 };
 
-std::ostream	&operator<<(std::ostream &out, const ShrubberyCreationForm &src);
+std::ostream	&operator<<(std::ostream &out, const RobotomyRequestForm &src);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 12:41:49 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:06:25 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <fstream>
 
 # include "Bureaucrat.hpp"
 
@@ -30,6 +31,7 @@ class	AForm
 
 	public:
 		AForm();
+		AForm(const std::string name);
 		AForm(const AForm &src);
 		AForm(std::string name, const int gradeToSign, const int gradeToExec);
 		virtual		~AForm();
@@ -40,7 +42,8 @@ class	AForm
 		int		getGradeToSign() const;
 		int		getGradeToExecute() const;
 
-		void	beSigned(const Bureaucrat &autor);
+		void		beSigned(const Bureaucrat &autor);
+		virtual void	execute(const Bureaucrat &executor) const = 0;
 
 		class	GradeTooHighException : public std::exception
 		{

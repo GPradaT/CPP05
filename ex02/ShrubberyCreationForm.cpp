@@ -6,17 +6,25 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 12:38:06 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:15:25 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Form")
 {
 	_gradeToSign = 145;
 	_gradeToExecute = 137;
-	std::cout << "ShrubberyCreationForm CONSTRUCTOR" << std::endl;
+	std::cout << "ShrubberyCreationForm Default CONSTRUCTOR" << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm ("Shrubbery Form")
+{
+	_target = target;
+	_gradeToSign = 145;
+	_gradeToExecute = 137;
+	std::cout << "ShrubberyCreationForm Parametrized CONSTRUCTOR" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
@@ -42,6 +50,21 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
+void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+{
+	if (getIsSigned() && executor.getGrade() < getGradeToExecute())
+	{
+		std::string fileName = _target + "_shrubbery";
+		std::ofstream	myFile;
+		myFile.open(fileName.c_str());
+		myFile << " /\\ " << std::endl;
+		myFile << "/  \\" << std::endl;
+		myFile << " || " << std::endl;
+	}
+	else
+		throw GradeTooLowException();
+}
+
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
 {
 	out << "ShrubberyCreationForm: " << src.getName() << ", Sign status: "
@@ -51,6 +74,7 @@ std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
 		<< std::endl;
 	return out;
 }
+
 /*
 const char	*ShrubberyCreationForm::GradeTooHighException::what() const throw()
 {
@@ -61,30 +85,4 @@ const char	*ShrubberyCreationForm::GradeTooLowException::what() const throw()
 {
 	return "You need higher grade.";
 }
-
-std::string	ShrubberyCreationForm::getName() const
-{
-	return this->_name;
-}
-
-bool		ShrubberyCreationForm::getIsSigned() const
-{
-	return this->_isSigned;
-}
-
-int		ShrubberyCreationForm::getGradeToSign() const
-{
-	return this->_gradeToSign;
-}
-
-int		ShrubberyCreationForm::getGradeToExecute() const
-{
-	return this->_gradeToExecute;
-}
-
-void		ShrubberyCreationForm::beSigned(const Bureaucrat &autor)
-{
-	if (autor.getGrade() > getGradeToSign())
-		throw GradeTooLowException();
-	_isSigned = true;
-}*/
+*/

@@ -6,13 +6,16 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 10:46:50 by gprada-t          #+#    #+#              #
-#    Updated: 2024/07/29 10:25:21 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/07/30 17:08:42 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = YouNeedForm
 
-SRCS = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp main.cpp
+SRCS = Bureaucrat.cpp AForm.cpp \
+       ShrubberyCreationForm.cpp \
+       RobotomyRequestForm.cpp \
+       main.cpp
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(OBJS:.o=.d)
 
@@ -31,6 +34,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf *_shrubbery
 
 re: fclean all
 

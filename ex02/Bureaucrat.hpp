@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 09:47:38 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:27:35 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ class	Bureaucrat
 
 		void		incrementGrade();
 		void		decrementGrade();
+
 		void		signForm(AForm &toSign);
+		void		executeForm(const AForm &form);
+
 		class	GradeTooHighException : public std::exception
 		{
 			public:

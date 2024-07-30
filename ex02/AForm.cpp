@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 09:39:39 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:47:41 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 AForm::AForm() : _name("Default"), _isSigned(false), _gradeToSign(150),
 	_gradeToExecute(150)
 {
-    std::cout << "AForm constructor" << std::endl;
+    std::cout << "AForm DEFAULT constructor" << std::endl;
+}
+
+AForm::AForm(const std::string name) : _name(name), _isSigned(false), _gradeToSign(150),
+	_gradeToExecute(150)
+{
+    std::cout << "AForm PARAMETRIZED constructor" << std::endl;
 }
 
 AForm::AForm(const AForm &src) : _name(src._name), _isSigned(src._isSigned),

@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/29 09:48:23 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:25:43 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat DESTRUCTOR" << std::endl;
 }
-
 
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
@@ -91,10 +90,23 @@ void	Bureaucrat::signForm(AForm &toSign)
 	try
 	{
 		toSign.beSigned(*this);
-		std::cout << this->getName() << " signed " << toSign.getName();
+		std::cout << this->getName() << " signed " 
+			<< toSign.getName() << std::endl;
 	} catch (std::exception &e) {
 		std::cout << this->getName() << " couldn't sign "
-			<< toSign.getName() << " because " 
+			<< toSign.getName() << " because "
 			<< e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+	} catch (std::exception &e) {
+		std::cout << this->getName() << " couldn't execute "
+			<< form.getName() << " because " << e.what()
+			<< std::endl;
 	}
 }
