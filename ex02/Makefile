@@ -6,7 +6,7 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 10:46:50 by gprada-t          #+#    #+#              #
-#    Updated: 2024/07/30 17:08:42 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/07/30 17:30:44 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME = YouNeedForm
 SRCS = Bureaucrat.cpp AForm.cpp \
        ShrubberyCreationForm.cpp \
        RobotomyRequestForm.cpp \
+       PresidentialPardonForm.cpp \
        main.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(OBJS:.o=.d)
 

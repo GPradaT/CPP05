@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/30 16:15:25 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:34:16 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
 {
-	out << "ShrubberyCreationForm: " << src.getName() << ", Sign status: "
+	out << "Form: " << src.getName() << ", Sign status: "
 		<< (src.getIsSigned() ? "signed" : "not signed")
 		<< ", Grade to sign: " << src.getGradeToSign()
 		<< ", Grade to execute: " << src.getGradeToExecute()

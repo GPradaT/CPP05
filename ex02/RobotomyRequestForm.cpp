@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/30 17:10:07 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:34:50 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy Request Form")
 	std::cout << "RobotomyRequestForm Default CONSTRUCTOR" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm ("Shrubbery Form")
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm ("Robotomy Request Form")
 {
 	_target = target;
 	_gradeToSign = 72;
@@ -56,7 +56,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	{
 		std::cout << "ZZzzzZZzzZzZzzz" << std::endl;
 		std::cout << _target << " has been robotomized successfully"
-			<< " 50%% of it's time" << std::endl;
+			<< " 50% of it's time" << std::endl;
 	}
 	else
 		throw GradeTooLowException();
@@ -64,7 +64,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &src)
 {
-	out << "RobotomyRequestForm: " << src.getName() << ", Sign status: "
+	out << "Form: " << src.getName() << ", Sign status: "
 		<< (src.getIsSigned() ? "signed" : "not signed")
 		<< ", Grade to sign: " << src.getGradeToSign()
 		<< ", Grade to execute: " << src.getGradeToExecute()
