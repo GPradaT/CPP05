@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/31 20:20:26 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/31 21:26:25 by gpradat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,12 @@ int	main()
 	std::cout << GrandMaster;
 	std::cout << Constitution;
 	}
+	std::cout << SEPARATOR << std::endl;
 	{
 	Intern someRandomIntern;
-	Form rrf;
+	AForm *rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << *rrf << std::endl;
 	}
 	return 0;
 }
