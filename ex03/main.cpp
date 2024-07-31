@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/31 21:26:25 by gpradat          ###   ########.fr       */
+/*   Updated: 2024/07/31 22:47:37 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,7 @@ int	main()
 
 	try
 	{
-		AForm	*test3 = new PresidentialPardonForm("Ur mom");
 		GrandMaster.signForm(Constitution);
-		test3->beSigned(GrandMaster);
-		test3->execute(GrandMaster);
-		delete test3;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
@@ -84,6 +80,7 @@ int	main()
 	AForm *rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	std::cout << *rrf << std::endl;
+	delete rrf;
 	}
 	return 0;
 }
