@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:43:26 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/31 09:41:04 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/31 20:20:26 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
+#include "Intern.hpp"
 int	main()
 {
 	{
@@ -77,6 +77,11 @@ int	main()
 	GrandMaster.executeForm(Constitution);
 	std::cout << GrandMaster;
 	std::cout << Constitution;
+	}
+	{
+	Intern someRandomIntern;
+	Form rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	}
 	return 0;
 }

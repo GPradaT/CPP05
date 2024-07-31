@@ -6,7 +6,7 @@
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/31 17:08:42 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/31 20:37:36 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ AForm	*makeForm(std::string typeForm, std::string target)
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-	throw typeFormNotFound();
+	throw Intern::typeFormNotFound();
 }
