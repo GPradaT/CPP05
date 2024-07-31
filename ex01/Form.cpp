@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: gprada-t <gprada-t@student.42barcelona.	+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/07/28 08:46:00 by gprada-t		  #+#	#+#			 */
-/*   Updated: 2024/07/29 11:27:56 by gprada-t         ###   ########.fr       */
-/*																			*/
+/*                                                    +:+ +:+         +:+     */
+/*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
+/*   Updated: 2024/07/31 08:51:02 by gprada-t         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
@@ -25,14 +25,12 @@ Form::Form(const Form &src) : _name(src._name), _isSigned(src._isSigned),
 }
 
 Form::Form(std::string name, const int gradeToSign, const int gradeToExec)
-	: _name(name)
+	: _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
 {
 	if (gradeToSign < 1 || gradeToExec < 1)
 		throw GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExec > 150)
 		throw GradeTooLowException();
-	_gradeToSign = gradeToSign;
-	_gradeToExecute = gradeToExec;
 	_isSigned = false;
 }
 
@@ -44,11 +42,7 @@ Form::~Form()
 Form	&Form::operator=(const Form &src)
 {
 	if (this != &src)
-	{
-		_isSigned = src._isSigned;
-		_gradeToSign = src._gradeToSign;
-		_gradeToExecute = src._gradeToExecute;
-	}
+		Form(src.getName(), src.getGradeToSign(), src.getGradeToExecute());
 	return *this;
 }
 

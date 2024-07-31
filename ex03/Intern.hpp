@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 08:46:00 by gprada-t          #+#    #+#             */
-/*   Updated: 2024/07/31 09:40:43 by gprada-t         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:10:03 by gprada-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include "AForm.hpp"
+# define SHRUBBERY "shrubbery form"
+# define ROBOTOMY "robotomy request"
+# define PARDON "presidential pardon"
 
-class	Bureaucrat;
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-class	PresidentialPardonForm : public AForm
+typedef AForm*	(*Form)(std::string);
+
+class	Intern
 {
-	private:
-		std::string	_target;
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(const std::string target);
-		PresidentialPardonForm(const PresidentialPardonForm &src);
-		~PresidentialPardonForm();
-		PresidentialPardonForm		&operator=(const PresidentialPardonForm &src);
-		class	PresidentTooLowException : public GradeTooLowException
+		Intern();
+		~Intern();
+		Intern(const Intern &src);
+		Intern	&operator=(const Intern &src);
+		
+		AForm	*makeForm(std::string typeForm, std::string target);
+		class	typeFormNotFound : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();
 		};
-		void	execute(Bureaucrat const & executor) const;
 };
-
-std::ostream	&operator<<(std::ostream &out, const PresidentialPardonForm &src);
 
 #endif
